@@ -1,0 +1,35 @@
+<div class="container mx-auto">
+<h2 Class="lead">---Task Details---</h2>
+<hr>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Particulars</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <th scope="row"><%=@task.id %></th>
+      <td><%= @task.title %></td>
+    </tr>
+    <tr>
+      <th scope="row">Details</th>
+      <td><%= @task.details %></td>
+    </tr>
+    <tr>
+       <th scope="row">Completed?</th>
+      <td><input type="checkbox" <%= "checked" if @task.completed? %>> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<br>
+  <%= link_to "All the task", tasks_path %> |
+  <%= link_to "Add", tasks_new_path %>|
+  <%= link_to "Delete",
+     task_path(@task),
+      data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete the task?"}
+  %>
+</div>

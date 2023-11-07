@@ -1,0 +1,29 @@
+<div class="container">
+<%= form_with model: task do |f| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">items</th>
+      <th scope="col">details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= f.label :title %></td>
+      <td><%= f.text_field :title %> </td>
+    </tr>
+    <tr>
+      <td scope="col"><%= f.label :details %></td>
+      <td><%= f.text_field :details %></td>
+    </tr>
+    <tr>
+      <td scope="col"><%= f.label :completed %></td>
+      <td>  <%= f.check_box :completed %></td>
+    </tr>
+    <tr>
+    </tr>
+  </tbody>
+  </table>
+    <%= f.submit %> | <%= link_to "All the task", tasks_path %>
+   <% end %>
+  </div>
