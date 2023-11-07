@@ -5,14 +5,22 @@
   <tr>
       <th scope="col">Done?</th>
       <th scope="col">Tasks</th>
+      <th scope="col">Details</th>
+      <th scope="col">Delete</th>
   </tr>
   <% @tasks.each do |task| %>
   <tr>
    <td>
       <input type="checkbox" <%= "checked" if task.completed? %> />
-    </td>
+   </td>
     <td>
       <%= link_to task.title, task_path(task) %> </td>
+    <td>
+      <%= task.details %> </td>
+    <td>
+      <%= link_to "Delete", task_path(task),
+      data: { turbo_method: :delete, turbo_confirm: "Are you sure to delete the task?" } %>
+    </td>
   </tr>
   <% end %>
   </tbody>
